@@ -1,30 +1,22 @@
-function meuEscopo() {
-  const form = document.querySelector(".form");
-  const resultado = document.querySelector(".resultado");
+function formData() {
 
-  const pessoas = [];
+const form = document.querySelector(".form")
+const resultado = document.querySelector(".resultado")
 
-  function recebeEventoForm(evento) {
-    evento.preventDefault();
+  function capValores(event) {
 
-    const nome = form.querySelector(".nome");
-    const sobrenome = form.querySelector(".sobrenome");
-    const peso = form.querySelector(".peso");
-    const altura = form.querySelector(".altura");
+    event.preventDefault()
 
-    pessoas.push({
-      nome: nome.value,
-      sobrenome: sobrenome.value,
-      peso: peso.value,
-      altura: altura.value,
-    });
+    const nome = form.querySelector(".nome").value
+    const sobrenome = form.querySelector(".sobrenome").value
 
-    console.log(pessoas);
+    
+        resultado.innerHTML += `<p>${nome}, ${sobrenome}</p>`
 
-    resultado.innerHTML +=
-      `<p>${nome.value} ${sobrenome.value} ` + `${peso.value} ${altura.value}`;
+   
   }
 
-  form.addEventListener("submit", recebeEventoForm);
+  form.addEventListener("submit", capValores)
+
 }
-meuEscopo();
+formData()
