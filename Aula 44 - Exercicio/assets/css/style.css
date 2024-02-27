@@ -26,6 +26,7 @@ body {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
+    line-height: 1em;
 }
 
 form input, form label, form button {
@@ -64,5 +65,12 @@ form button:active {
 }
 
 .parameters {
-    
+    display: grid;
+    grid-template-columns: auto auto;
+    line-height: 0.9em;
+}
+
+.paragrafo-resultado {
+    background: #61d36a;
+    padding: 10px 20px;
 }

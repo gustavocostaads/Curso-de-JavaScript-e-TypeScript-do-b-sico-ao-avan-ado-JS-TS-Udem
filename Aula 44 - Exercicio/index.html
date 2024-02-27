@@ -8,6 +8,8 @@
 </head>
 <body>
     <section class="container">
+
+      <H1>Tabela IMC</H1>
         
       <section class="parameters">
         <section class="param1">
@@ -23,30 +25,24 @@
           <h3>Resultado</h3>
           <p>Abaixo do peso</p>
           <p>Peso normal</p>
-          <p>sobrepeso</p>
+          <p>Sobrepeso</p>
           <p>Obesidade grau 1</p>
           <p>Obesidade grau 2</p>
           <p>Obesidade grau 3</p>
         </section>
-      </section>
-        
-
+      </section> 
         <h1>Calcule seu IMC</h1>
 
-        <form class="form">
-            <label for="input-teste-1">Peso:</label>
-            <input type="text" id="input-teste-1">
-            
-            <label for="input-teste-2">Altura:</label>
-            <input type="password" id="input-teste-2">
-            
-           
-
-            <button>Enviar</button>
+        <form id="formulario">
+            <label for="peso">Peso:</label>
+            <input type="text" id="peso" name="peso">
+            <label for="altura">Altura:</label>
+            <input type="text" id="altura" name="altura">
+            <button type="submit">Enviar</button>
         </form>
+
+        <div id="resultado"></div>
       </section>
-
-
 
     <script src="./assets/js/main.js"></script>
 </body>
