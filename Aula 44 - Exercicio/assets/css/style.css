@@ -74,3 +74,8 @@ form button:active {
     background: #61d36a;
     padding: 10px 20px;
 }
+
+.bad {
+    background: rgb(255, 150, 150);
+    padding: 10px 20px;
+}
