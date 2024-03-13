@@ -1,4 +1,4 @@
-const form = document.querySelector("#formulario");
+const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -6,55 +6,43 @@ form.addEventListener("submit", (e) => {
   const inputPeso = e.target.querySelector("#peso");
   const inputAltura = e.target.querySelector("#altura");
 
+  console.log(typeof inputPeso);
+
   const peso = Number(inputPeso.value);
   const altura = Number(inputAltura.value);
 
+  console.log(typeof (peso, altura));
+
+  const imc1 = peso / altura ** 2;
+  const imc = imc1.toFixed(2)
+  const nivelImc = nivelFunc(imc);
+
   if (!peso) {
-    setResultado("Peso Inválido", false);
-    return;
+    return setResultado("Peso Inválido", false);
   }
-
   if (!altura) {
-    setResultado("Altura Inválida", false);
-    return;
+    return setResultado("Altura Inválida", false);
   }
 
-  const imc = getImc(peso, altura);
-  const nivelImc = getNivelImc(imc);
-
-  const msg = `Seu IMC é ${imc} (${nivelImc}).`;
-
-  setResultado(msg, true);
+  setResultado(`Seu imc é ${imc} (${nivelImc})`, true);
 });
 
-function getNivelImc(imc) {
-  const nivel = [
-    "Abaixo do peso",
-    "Peso normal",
-    "Sobrepeso",
-    "Obesidade grau 1",
-    "Obesidade grau 2",
-    "Obesidade grau 3",
-  ];
+function nivelFunc(imc) {
+  const nivel = ["Abaixo do peso","Peso normal","Sobrepeso","Obesidade grau 1","Obesidade grau 2","Obesidade grau 3"];
 
-  if (imc >= 40) return nivel[5];
-  if (imc >= 35) return nivel[4];
-  if (imc >= 30) return nivel[3];
-  if (imc >= 25) return nivel[2];
-  if (imc >= 18.5) return nivel[1];
-  if (imc < 18.5) return nivel[0];
-}
-
-function getImc(peso, altura) {
-  const imc = peso / altura ** 2;
-  return imc.toFixed(2);
+  if (imc <= 18.5) return nivel[0];  
+  if (imc <= 24.9) return nivel[1];
+  if (imc <= 29.9) return nivel[2];
+  if (imc <= 34.9) return nivel[3];
+  if (imc <= 39.9) return nivel[4];
+  if (imc >= 40)   return nivel[5];
 }
 
 function setResultado(msg, isValid) {
   const resultado = document.querySelector("#resultado");
-  resultado.innerHTML = "";
+  resultado.innerHTML = ""
 
-  const p = document.createElement("p");
+  const p = document.createElement("p")
 
   if (isValid) {
     p.classList.add("paragrafo-resultado");
@@ -63,5 +51,5 @@ function setResultado(msg, isValid) {
   }
 
   p.innerHTML = msg;
-  resultado.appendChild(p);
+  resultado.appendChild(p)
 }
